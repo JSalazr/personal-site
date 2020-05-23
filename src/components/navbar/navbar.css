@@ -1,0 +1,30 @@
+.navbar-container {
+  height: 10vh;
+  width: 100vw;
+  background-color: #ea526f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px black;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navbar-item {
+  height: 100%;
+  line-height: 10vh;
+  padding: .5em;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2em;
+  color: #F8FFE5;
+}
+
+.navbar-item:hover {
+  padding: .5em;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2em;
+  background-color: #F8FFE5;
+  color: #ea526f;
+}
