@@ -1,0 +1,22 @@
+
+.viewArea {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.scroll {
+  transition: transform 1000ms ease-in-out 0.01s;
+  transition-property: all;
+}
+
+.scroll.page-1 {
+  transform: translate3d(0, 0vh, 0);
+}
+.scroll.page-2 {
+  transform: translate3d(0, -100vh, 0);
+}
+.scroll.page-3 {
+  transform: translate3d(0, -200vh, 0);
+}
+

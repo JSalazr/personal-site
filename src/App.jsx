@@ -1,32 +1,49 @@
 import React from 'react';
 // import Scroller from './components/scroller';
-import LandingPage from './components/sections/landingPage';
 import Navbar from './components/navbar';
-import AboutMe from './components/sections/aboutMe';
-import ReactPageScroller from 'react-page-scroller'
-import Projects from './components/sections/projects';
+import Scroller from './components/scroller';
 
 class App extends React.Component {
   state = {
     currentPage: 0,
+    pagesStates: [{}, {}, {}]
   };
 
-  pageScroll = (currentPage) => {
-    console.log("test");
+  componentDidMount() {
+    window.addEventListener('wheel', this.handleScroll);
+    window.addEventListener('keydown', this.handleKeyPress);
+  }
+
+  pageScroll = (isScrollDown) => {
     this.setState({
-      currentPage
+      currentPage: this.getNewPage(isScrollDown)
     });
   }
 
+  getNewPage(isScrollDown){
+    const {currentPage} = this.state;
+    if(isScrollDown){
+      return currentPage < 2 ? currentPage + 1 : currentPage 
+    }else{
+      return currentPage > 0 ? currentPage - 1 : currentPage
+    }
+  }
+
+  handleScroll = (event) => {
+    this.pageScroll(event.deltaY > 0)
+  }
+
+  handleKeyPress = (event) => {
+    if(event.key === 'ArrowDown') this.pageScroll(true)
+    if(event.key === 'ArrowUp') this.pageScroll(false)
+  }
+
   render(){
+    const { currentPage } = this.state;
     return (
       <>
-        <ReactPageScroller pageOnChange={this.pageScroll}>
-          <LandingPage />
-          <AboutMe />
-          <Projects />
-        </ReactPageScroller>
-        <Navbar currentPage={this.state.currentPage}/>
+        <Scroller currentPage={currentPage} />
+        <Navbar currentPage={currentPage}/>
       </>
     )
   }
