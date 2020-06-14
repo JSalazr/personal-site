@@ -1,20 +1,14 @@
-.landing-title {
+.projects-title {
   font-family: "Montserrat", sans-serif;
   font-size: 10em;
-  color: #ea526f;
+  color: #7AE7C7;
   margin: auto;
   width: 50%;
 }
 
-.subtitle {
-  font-family: "Montserrat", sans-serif;
-  font-size: .15em;
-  color: #F8FFE5;
-}
-
-.landing-bg {
+.projects-bg {
   height: 100vh;
-  background-color: #7AE7C7;
+  background-color: #ea526f;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -10,6 +10,20 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
+  position: absolute;
+  transform: translate3d(0, -10vh, 0);
+}
+
+.scroll-top {
+  transform: translate3d(0, -100vh, 0);
+  transition: transform 1000ms ease-in-out 0.01s;
+  transition-property: all;
+}
+
+.scroll-bottom {
+  transform: translate3d(0, -10vh, 0);
+  transition: transform 1000ms ease-in-out 0s;
+  transition-property: all;
 }
 
 .navbar-item {
