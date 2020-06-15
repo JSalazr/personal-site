@@ -2,6 +2,7 @@ import React from 'react';
 // import Scroller from './components/scroller';
 import Navbar from './components/navbar';
 import Scroller from './components/scroller';
+import { throttle } from "underscore";
 
 class App extends React.Component {
   state = {
@@ -10,8 +11,8 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    window.addEventListener('wheel', this.handleScroll);
-    window.addEventListener('keydown', this.handleKeyPress);
+    window.addEventListener('wheel', throttle(this.handleScroll, 1000, {leading: false, trailing: false}));
+    window.addEventListener('keydown', throttle(this.handleKeyPress, 1000, {leading: false, trailing: false}));
   }
 
   pageScroll = (isScrollDown) => {
